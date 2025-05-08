@@ -220,3 +220,566 @@
 2025-05-04T21:36:29.861+09:00  WARN 19000 --- [MySpringbootLab] [SpringApplicationShutdownHook] o.s.b.f.s.DisposableBeanAdapter          : Invocation of destroy method failed on bean with name 'inMemoryDatabaseShutdownExecutor': org.h2.jdbc.JdbcSQLNonTransientConnectionException: Database is already closed (to disable automatic closing at VM shutdown, add ";DB_CLOSE_ON_EXIT=FALSE" to the db URL) [90121-232]
 2025-05-04T21:36:29.861+09:00  INFO 19000 --- [MySpringbootLab] [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
 2025-05-04T21:36:29.863+09:00  INFO 19000 --- [MySpringbootLab] [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2025-05-08T17:31:00.413+09:00  INFO 33476 --- [MySpringbootLab] [main] c.r.m.r.BookRepositoryTest               : Starting BookRepositoryTest using Java 17.0.2 with PID 33476 (started by pshcc in C:\mybackend\MySpringbootLab\MySpringbootLab)
+2025-05-08T17:31:00.421+09:00  INFO 33476 --- [MySpringbootLab] [main] c.r.m.r.BookRepositoryTest               : The following 1 profile is active: "prod"
+2025-05-08T17:31:01.030+09:00  INFO 33476 --- [MySpringbootLab] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-08T17:31:01.142+09:00  INFO 33476 --- [MySpringbootLab] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 89 ms. Found 1 JPA repository interface.
+2025-05-08T17:31:01.220+09:00  INFO 33476 --- [MySpringbootLab] [main] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2025-05-08T17:31:01.508+09:00  INFO 33476 --- [MySpringbootLab] [main] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:a0cdf00b-5903-4580-9c56-b9077f2ed91b;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2025-05-08T17:31:01.828+09:00  INFO 33476 --- [MySpringbootLab] [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-08T17:31:01.898+09:00  INFO 33476 --- [MySpringbootLab] [main] o.h.Version                              : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-08T17:31:01.940+09:00  INFO 33476 --- [MySpringbootLab] [main] o.h.c.i.RegionFactoryInitiator           : HHH000026: Second-level cache disabled
+2025-05-08T17:31:02.278+09:00  INFO 33476 --- [MySpringbootLab] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-08T17:31:02.345+09:00  WARN 33476 --- [MySpringbootLab] [main] o.h.d.Dialect                            : HHH000511: The 2.3.232 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-08T17:31:02.350+09:00  WARN 33476 --- [MySpringbootLab] [main] o.h.o.deprecation                        : HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-08T17:31:02.379+09:00  INFO 33476 --- [MySpringbootLab] [main] o.h.o.c.pooling                          : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory$EmbeddedDataSourceProxy@4beae1e3']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-08T17:31:03.260+09:00  INFO 33476 --- [MySpringbootLab] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-08T17:31:03.347+09:00  WARN 33476 --- [MySpringbootLab] [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "create table books (id bigint not null auto_increment, author varchar(255), isbn varchar(255), price integer, publish_date date, title varchar(255), primary key (id)) engine=InnoDB" via JDBC [Syntax error in SQL statement "create table books (id bigint not null auto_increment, author varchar(255), isbn varchar(255), price integer, publish_date date, title varchar(255), primary key (id)) engine[*]=InnoDB"; expected "identifier";]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create table books (id bigint not null auto_increment, author varchar(255), isbn varchar(255), price integer, publish_date date, title varchar(255), primary key (id)) engine=InnoDB" via JDBC [Syntax error in SQL statement "create table books (id bigint not null auto_increment, author varchar(255), isbn varchar(255), price integer, publish_date date, title varchar(255), primary key (id)) engine[*]=InnoDB"; expected "identifier";]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:516) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.createTable(AbstractSchemaMigrator.java:316) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:80) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:233) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:112) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421) ~[?:?]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.2.6.jar:6.2.6]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.2.6.jar:6.2.6]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419) ~[spring-orm-6.2.6.jar:6.2.6]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.6.jar:6.2.6]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1865) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1814) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753) ~[spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:144) ~[spring-boot-test-3.4.5.jar:3.4.5]
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58) ~[spring-core-6.2.6.jar:6.2.6]
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46) ~[spring-core-6.2.6.jar:6.2.6]
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1462) ~[spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:563) ~[spring-boot-test-3.4.5.jar:3.4.5]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:144) ~[spring-boot-test-3.4.5.jar:3.4.5]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:110) ~[spring-boot-test-3.4.5.jar:3.4.5]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.2.6.jar:6.2.6]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.2.6.jar:6.2.6]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.2.6.jar:6.2.6]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:155) ~[spring-test-6.2.6.jar:6.2.6]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:111) ~[spring-test-6.2.6.jar:6.2.6]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.2.6.jar:6.2.6]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:159) ~[spring-test-6.2.6.jar:6.2.6]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:378) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:383) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$12(ClassBasedTestDescriptor.java:378) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[?:?]
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179) ~[?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[?:?]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625) ~[?:?]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[?:?]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[?:?]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[?:?]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$7(ClassBasedTestDescriptor.java:290) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:289) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:279) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at java.base/java.util.Optional.orElseGet(Optional.java:364) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$6(ClassBasedTestDescriptor.java:278) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$1(TestMethodTestDescriptor.java:105) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:104) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:68) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:128) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:128) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) [junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) [junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) [junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) [junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) [junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:63) [junit-platform-launcher-1.11.4.jar:1.11.4]
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:57) [junit5-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55) [junit-rt.jar:?]
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table books (id bigint not null auto_increment, author varchar(255), isbn varchar(255), price integer, publish_date date, title varchar(255), primary key (id)) engine[*]=InnoDB"; expected "identifier"; SQL statement:
+create table books (id bigint not null auto_increment, author varchar(255), isbn varchar(255), price integer, publish_date date, title varchar(255), primary key (id)) engine=InnoDB [42001-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.message.DbException.getSyntaxError(DbException.java:261) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.readIdentifier(Parser.java:5527) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8827) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parseCreate(Parser.java:6398) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parsePrepared(Parser.java:645) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parse(Parser.java:581) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parse(Parser.java:556) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.prepareCommand(Parser.java:484) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:645) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:561) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1164) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.3.232.jar:2.3.232]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	... 116 more
+
+2025-05-08T17:31:03.357+09:00  INFO 33476 --- [MySpringbootLab] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-08T17:31:03.733+09:00  INFO 33476 --- [MySpringbootLab] [main] c.r.m.r.BookRepositoryTest               : Started BookRepositoryTest in 3.983 seconds (process running for 5.713)
+2025-05-08T17:31:04.223+09:00  WARN 33476 --- [MySpringbootLab] [main] o.h.e.j.s.SqlExceptionHelper             : SQL Error: 42104, SQLState: 42S04
+2025-05-08T17:31:04.223+09:00 ERROR 33476 --- [MySpringbootLab] [main] o.h.e.j.s.SqlExceptionHelper             : Table "BOOKS" not found (this database is empty); SQL statement:
+insert into books (author,isbn,price,publish_date,title) values (?,?,?,?,?) [42104-232]
+2025-05-08T17:31:04.258+09:00  INFO 33476 --- [MySpringbootLab] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-08T17:33:01.277+09:00  INFO 27620 --- [MySpringbootLab] [main] c.r.m.r.BookRepositoryTest               : Starting BookRepositoryTest using Java 17.0.2 with PID 27620 (started by pshcc in C:\mybackend\MySpringbootLab\MySpringbootLab)
+2025-05-08T17:33:01.283+09:00  INFO 27620 --- [MySpringbootLab] [main] c.r.m.r.BookRepositoryTest               : The following 1 profile is active: "prod"
+2025-05-08T17:33:01.673+09:00  INFO 27620 --- [MySpringbootLab] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-08T17:33:01.735+09:00  INFO 27620 --- [MySpringbootLab] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 52 ms. Found 1 JPA repository interface.
+2025-05-08T17:33:01.788+09:00  INFO 27620 --- [MySpringbootLab] [main] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2025-05-08T17:33:02.064+09:00  INFO 27620 --- [MySpringbootLab] [main] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:be87b780-eb8d-46ec-aa34-836fd804ef8b;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2025-05-08T17:33:02.403+09:00  INFO 27620 --- [MySpringbootLab] [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-08T17:33:02.486+09:00  INFO 27620 --- [MySpringbootLab] [main] o.h.Version                              : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-08T17:33:02.536+09:00  INFO 27620 --- [MySpringbootLab] [main] o.h.c.i.RegionFactoryInitiator           : HHH000026: Second-level cache disabled
+2025-05-08T17:33:02.922+09:00  INFO 27620 --- [MySpringbootLab] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-08T17:33:03.006+09:00  WARN 27620 --- [MySpringbootLab] [main] o.h.d.Dialect                            : HHH000511: The 2.3.232 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-08T17:33:03.011+09:00  WARN 27620 --- [MySpringbootLab] [main] o.h.o.deprecation                        : HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-08T17:33:03.052+09:00  INFO 27620 --- [MySpringbootLab] [main] o.h.o.c.pooling                          : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory$EmbeddedDataSourceProxy@4beae1e3']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-08T17:33:03.980+09:00  INFO 27620 --- [MySpringbootLab] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-08T17:33:04.052+09:00  WARN 27620 --- [MySpringbootLab] [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "create table books (id bigint not null auto_increment, author varchar(255), isbn varchar(255), price integer, publish_date date, title varchar(255), primary key (id)) engine=InnoDB" via JDBC [Syntax error in SQL statement "create table books (id bigint not null auto_increment, author varchar(255), isbn varchar(255), price integer, publish_date date, title varchar(255), primary key (id)) engine[*]=InnoDB"; expected "identifier";]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create table books (id bigint not null auto_increment, author varchar(255), isbn varchar(255), price integer, publish_date date, title varchar(255), primary key (id)) engine=InnoDB" via JDBC [Syntax error in SQL statement "create table books (id bigint not null auto_increment, author varchar(255), isbn varchar(255), price integer, publish_date date, title varchar(255), primary key (id)) engine[*]=InnoDB"; expected "identifier";]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:516) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.createTable(AbstractSchemaMigrator.java:316) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:80) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:233) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:112) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421) ~[?:?]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.2.6.jar:6.2.6]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.2.6.jar:6.2.6]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419) ~[spring-orm-6.2.6.jar:6.2.6]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.6.jar:6.2.6]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1865) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1814) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753) ~[spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:144) ~[spring-boot-test-3.4.5.jar:3.4.5]
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58) ~[spring-core-6.2.6.jar:6.2.6]
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46) ~[spring-core-6.2.6.jar:6.2.6]
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1462) ~[spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:563) ~[spring-boot-test-3.4.5.jar:3.4.5]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:144) ~[spring-boot-test-3.4.5.jar:3.4.5]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:110) ~[spring-boot-test-3.4.5.jar:3.4.5]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.2.6.jar:6.2.6]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.2.6.jar:6.2.6]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.2.6.jar:6.2.6]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:155) ~[spring-test-6.2.6.jar:6.2.6]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:111) ~[spring-test-6.2.6.jar:6.2.6]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.2.6.jar:6.2.6]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:159) ~[spring-test-6.2.6.jar:6.2.6]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:378) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:383) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$12(ClassBasedTestDescriptor.java:378) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[?:?]
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179) ~[?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[?:?]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625) ~[?:?]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[?:?]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[?:?]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[?:?]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$7(ClassBasedTestDescriptor.java:290) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:289) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:279) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at java.base/java.util.Optional.orElseGet(Optional.java:364) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$6(ClassBasedTestDescriptor.java:278) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$1(TestMethodTestDescriptor.java:105) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:104) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:68) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:128) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:128) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) [junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) [junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) [junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) [junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) [junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:63) [junit-platform-launcher-1.11.4.jar:1.11.4]
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:57) [junit5-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55) [junit-rt.jar:?]
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table books (id bigint not null auto_increment, author varchar(255), isbn varchar(255), price integer, publish_date date, title varchar(255), primary key (id)) engine[*]=InnoDB"; expected "identifier"; SQL statement:
+create table books (id bigint not null auto_increment, author varchar(255), isbn varchar(255), price integer, publish_date date, title varchar(255), primary key (id)) engine=InnoDB [42001-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.message.DbException.getSyntaxError(DbException.java:261) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.readIdentifier(Parser.java:5527) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8827) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parseCreate(Parser.java:6398) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parsePrepared(Parser.java:645) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parse(Parser.java:581) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parse(Parser.java:556) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.prepareCommand(Parser.java:484) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:645) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:561) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1164) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.3.232.jar:2.3.232]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	... 116 more
+
+2025-05-08T17:33:04.062+09:00  INFO 27620 --- [MySpringbootLab] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-08T17:33:04.414+09:00  INFO 27620 --- [MySpringbootLab] [main] c.r.m.r.BookRepositoryTest               : Started BookRepositoryTest in 3.636 seconds (process running for 5.513)
+2025-05-08T17:33:04.843+09:00  WARN 27620 --- [MySpringbootLab] [main] o.h.e.j.s.SqlExceptionHelper             : SQL Error: 42104, SQLState: 42S04
+2025-05-08T17:33:04.843+09:00 ERROR 27620 --- [MySpringbootLab] [main] o.h.e.j.s.SqlExceptionHelper             : Table "BOOKS" not found (this database is empty); SQL statement:
+insert into books (author,isbn,price,publish_date,title) values (?,?,?,?,?) [42104-232]
+2025-05-08T17:33:04.877+09:00  INFO 27620 --- [MySpringbootLab] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-08T17:35:24.234+09:00  INFO 21664 --- [MySpringbootLab] [main] c.r.m.r.BookRepositoryTest               : Starting BookRepositoryTest using Java 17.0.2 with PID 21664 (started by pshcc in C:\mybackend\MySpringbootLab\MySpringbootLab)
+2025-05-08T17:35:24.241+09:00  INFO 21664 --- [MySpringbootLab] [main] c.r.m.r.BookRepositoryTest               : The following 1 profile is active: "prod"
+2025-05-08T17:35:24.689+09:00  INFO 21664 --- [MySpringbootLab] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-08T17:35:24.758+09:00  INFO 21664 --- [MySpringbootLab] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 1 JPA repository interface.
+2025-05-08T17:35:24.816+09:00  INFO 21664 --- [MySpringbootLab] [main] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2025-05-08T17:35:25.081+09:00  INFO 21664 --- [MySpringbootLab] [main] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:0a69e997-f77c-4a51-9fcd-06c58ed06e6f;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2025-05-08T17:35:25.373+09:00  INFO 21664 --- [MySpringbootLab] [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-08T17:35:25.446+09:00  INFO 21664 --- [MySpringbootLab] [main] o.h.Version                              : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-08T17:35:25.487+09:00  INFO 21664 --- [MySpringbootLab] [main] o.h.c.i.RegionFactoryInitiator           : HHH000026: Second-level cache disabled
+2025-05-08T17:35:25.822+09:00  INFO 21664 --- [MySpringbootLab] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-08T17:35:25.886+09:00  WARN 21664 --- [MySpringbootLab] [main] o.h.d.Dialect                            : HHH000511: The 2.3.232 version for [org.hibernate.dialect.MariaDBDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 10.4.0. Check the community dialects project for available legacy versions.
+2025-05-08T17:35:25.891+09:00  WARN 21664 --- [MySpringbootLab] [main] o.h.o.deprecation                        : HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-08T17:35:25.919+09:00  INFO 21664 --- [MySpringbootLab] [main] o.h.o.c.pooling                          : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseFactory$EmbeddedDataSourceProxy@4b85edeb']
+	Database driver: undefined/unknown
+	Database version: 2.3.232
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-08T17:35:26.772+09:00  INFO 21664 --- [MySpringbootLab] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-08T17:35:26.842+09:00  WARN 21664 --- [MySpringbootLab] [main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "create table books (id bigint not null auto_increment, author varchar(255), isbn varchar(255), price integer, publish_date date, title varchar(255), primary key (id)) engine=InnoDB" via JDBC [Syntax error in SQL statement "create table books (id bigint not null auto_increment, author varchar(255), isbn varchar(255), price integer, publish_date date, title varchar(255), primary key (id)) engine[*]=InnoDB"; expected "identifier";]
+
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create table books (id bigint not null auto_increment, author varchar(255), isbn varchar(255), price integer, publish_date date, title varchar(255), primary key (id)) engine=InnoDB" via JDBC [Syntax error in SQL statement "create table books (id bigint not null auto_increment, author varchar(255), isbn varchar(255), price integer, publish_date date, title varchar(255), primary key (id)) engine[*]=InnoDB"; expected "identifier";]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:94) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:576) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:516) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.createTable(AbstractSchemaMigrator.java:316) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:80) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:233) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:112) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:280) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.lambda$process$5(SchemaManagementToolCoordinator.java:144) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at java.base/java.util.HashMap.forEach(HashMap.java:1421) ~[?:?]
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:141) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.boot.internal.SessionFactoryObserverForSchemaExport.sessionFactoryCreated(SessionFactoryObserverForSchemaExport.java:37) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.internal.SessionFactoryObserverChain.sessionFactoryCreated(SessionFactoryObserverChain.java:35) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:324) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:463) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1517) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:66) ~[spring-orm-6.2.6.jar:6.2.6]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:390) ~[spring-orm-6.2.6.jar:6.2.6]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:419) ~[spring-orm-6.2.6.jar:6.2.6]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:400) ~[spring-orm-6.2.6.jar:6.2.6]
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:366) ~[spring-orm-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1865) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1814) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:607) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:529) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:339) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:371) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:337) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:207) ~[spring-beans-6.2.6.jar:6.2.6]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:970) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.6.jar:6.2.6]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:753) ~[spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.test.context.SpringBootContextLoader.lambda$loadContext$3(SpringBootContextLoader.java:144) ~[spring-boot-test-3.4.5.jar:3.4.5]
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:58) ~[spring-core-6.2.6.jar:6.2.6]
+	at org.springframework.util.function.ThrowingSupplier.get(ThrowingSupplier.java:46) ~[spring-core-6.2.6.jar:6.2.6]
+	at org.springframework.boot.SpringApplication.withHook(SpringApplication.java:1462) ~[spring-boot-3.4.5.jar:3.4.5]
+	at org.springframework.boot.test.context.SpringBootContextLoader$ContextLoaderHook.run(SpringBootContextLoader.java:563) ~[spring-boot-test-3.4.5.jar:3.4.5]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:144) ~[spring-boot-test-3.4.5.jar:3.4.5]
+	at org.springframework.boot.test.context.SpringBootContextLoader.loadContext(SpringBootContextLoader.java:110) ~[spring-boot-test-3.4.5.jar:3.4.5]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.2.6.jar:6.2.6]
+	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.2.6.jar:6.2.6]
+	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.2.6.jar:6.2.6]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:155) ~[spring-test-6.2.6.jar:6.2.6]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:111) ~[spring-test-6.2.6.jar:6.2.6]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.2.6.jar:6.2.6]
+	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:159) ~[spring-test-6.2.6.jar:6.2.6]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$11(ClassBasedTestDescriptor.java:378) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.executeAndMaskThrowable(ClassBasedTestDescriptor.java:383) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$12(ClassBasedTestDescriptor.java:378) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.accept(ForEachOps.java:183) ~[?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[?:?]
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179) ~[?:?]
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197) ~[?:?]
+	at java.base/java.util.ArrayList$ArrayListSpliterator.forEachRemaining(ArrayList.java:1625) ~[?:?]
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509) ~[?:?]
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499) ~[?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp.evaluateSequential(ForEachOps.java:150) ~[?:?]
+	at java.base/java.util.stream.ForEachOps$ForEachOp$OfRef.evaluateSequential(ForEachOps.java:173) ~[?:?]
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234) ~[?:?]
+	at java.base/java.util.stream.ReferencePipeline.forEach(ReferencePipeline.java:596) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.invokeTestInstancePostProcessors(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$instantiateAndPostProcessTestInstance$7(ClassBasedTestDescriptor.java:290) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.instantiateAndPostProcessTestInstance(ClassBasedTestDescriptor.java:289) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$5(ClassBasedTestDescriptor.java:279) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at java.base/java.util.Optional.orElseGet(Optional.java:364) ~[?:?]
+	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$testInstancesProvider$6(ClassBasedTestDescriptor.java:278) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.execution.TestInstancesProvider.getTestInstances(TestInstancesProvider.java:31) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.lambda$prepare$1(TestMethodTestDescriptor.java:105) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:104) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.jupiter.engine.descriptor.TestMethodTestDescriptor.prepare(TestMethodTestDescriptor.java:68) ~[junit-jupiter-engine-5.11.4.jar:5.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$prepare$2(NodeTestTask.java:128) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.prepare(NodeTestTask.java:128) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:95) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511) ~[?:?]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.invokeAll(SameThreadHierarchicalTestExecutorService.java:41) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$6(NodeTestTask.java:160) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$8(NodeTestTask.java:146) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.Node.around(Node.java:137) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.lambda$executeRecursively$9(NodeTestTask.java:144) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.ThrowableCollector.execute(ThrowableCollector.java:73) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.executeRecursively(NodeTestTask.java:143) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.NodeTestTask.execute(NodeTestTask.java:100) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.SameThreadHierarchicalTestExecutorService.submit(SameThreadHierarchicalTestExecutorService.java:35) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestExecutor.execute(HierarchicalTestExecutor.java:57) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.engine.support.hierarchical.HierarchicalTestEngine.execute(HierarchicalTestEngine.java:54) ~[junit-platform-engine-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:198) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:169) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:93) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.lambda$execute$0(EngineExecutionOrchestrator.java:58) ~[junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.withInterceptedStreams(EngineExecutionOrchestrator.java:141) [junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.EngineExecutionOrchestrator.execute(EngineExecutionOrchestrator.java:57) [junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:103) [junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DefaultLauncher.execute(DefaultLauncher.java:85) [junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.DelegatingLauncher.execute(DelegatingLauncher.java:47) [junit-platform-launcher-1.11.4.jar:1.11.4]
+	at org.junit.platform.launcher.core.SessionPerRequestLauncher.execute(SessionPerRequestLauncher.java:63) [junit-platform-launcher-1.11.4.jar:1.11.4]
+	at com.intellij.junit5.JUnit5IdeaTestRunner.startRunnerWithArgs(JUnit5IdeaTestRunner.java:57) [junit5-rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater$1.execute(IdeaTestRunner.java:38) [junit-rt.jar:?]
+	at com.intellij.rt.execution.junit.TestsRepeater.repeat(TestsRepeater.java:11) [idea_rt.jar:?]
+	at com.intellij.rt.junit.IdeaTestRunner$Repeater.startRunnerWithArgs(IdeaTestRunner.java:35) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.prepareStreamsAndStart(JUnitStarter.java:232) [junit-rt.jar:?]
+	at com.intellij.rt.junit.JUnitStarter.main(JUnitStarter.java:55) [junit-rt.jar:?]
+Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statement "create table books (id bigint not null auto_increment, author varchar(255), isbn varchar(255), price integer, publish_date date, title varchar(255), primary key (id)) engine[*]=InnoDB"; expected "identifier"; SQL statement:
+create table books (id bigint not null auto_increment, author varchar(255), isbn varchar(255), price integer, publish_date date, title varchar(255), primary key (id)) engine=InnoDB [42001-232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:514) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:489) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.message.DbException.getSyntaxError(DbException.java:261) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.readIdentifier(Parser.java:5527) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parseCreateTable(Parser.java:8827) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parseCreate(Parser.java:6398) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parsePrepared(Parser.java:645) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parse(Parser.java:581) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.parse(Parser.java:556) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.command.Parser.prepareCommand(Parser.java:484) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.engine.SessionLocal.prepareLocal(SessionLocal.java:645) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.engine.SessionLocal.prepareCommand(SessionLocal.java:561) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1164) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245) ~[h2-2.3.232.jar:2.3.232]
+	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.3.232.jar:2.3.232]
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.6.13.Final.jar:6.6.13.Final]
+	... 116 more
+
+2025-05-08T17:35:26.852+09:00  INFO 21664 --- [MySpringbootLab] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-08T17:35:27.192+09:00  INFO 21664 --- [MySpringbootLab] [main] c.r.m.r.BookRepositoryTest               : Started BookRepositoryTest in 3.504 seconds (process running for 4.877)
+2025-05-08T17:35:27.636+09:00  WARN 21664 --- [MySpringbootLab] [main] o.h.e.j.s.SqlExceptionHelper             : SQL Error: 42104, SQLState: 42S04
+2025-05-08T17:35:27.636+09:00 ERROR 21664 --- [MySpringbootLab] [main] o.h.e.j.s.SqlExceptionHelper             : Table "BOOKS" not found (this database is empty); SQL statement:
+insert into books (author,isbn,price,publish_date,title) values (?,?,?,?,?) [42104-232]
+2025-05-08T17:35:27.678+09:00  INFO 21664 --- [MySpringbootLab] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-08T17:37:47.445+09:00  INFO 6800 --- [MySpringbootLab] [main] c.r.m.r.BookRepositoryTest               : Starting BookRepositoryTest using Java 17.0.2 with PID 6800 (started by pshcc in C:\mybackend\MySpringbootLab\MySpringbootLab)
+2025-05-08T17:37:47.451+09:00  INFO 6800 --- [MySpringbootLab] [main] c.r.m.r.BookRepositoryTest               : The following 1 profile is active: "prod"
+2025-05-08T17:37:48.388+09:00  INFO 6800 --- [MySpringbootLab] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-08T17:37:48.453+09:00  INFO 6800 --- [MySpringbootLab] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 53 ms. Found 1 JPA repository interface.
+2025-05-08T17:37:49.120+09:00  INFO 6800 --- [MySpringbootLab] [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-08T17:37:49.194+09:00  INFO 6800 --- [MySpringbootLab] [main] o.h.Version                              : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-08T17:37:49.234+09:00  INFO 6800 --- [MySpringbootLab] [main] o.h.c.i.RegionFactoryInitiator           : HHH000026: Second-level cache disabled
+2025-05-08T17:37:49.732+09:00  INFO 6800 --- [MySpringbootLab] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-08T17:37:49.771+09:00  INFO 6800 --- [MySpringbootLab] [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2025-05-08T17:37:49.859+09:00  INFO 6800 --- [MySpringbootLab] [main] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@2059f785
+2025-05-08T17:37:49.861+09:00  INFO 6800 --- [MySpringbootLab] [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2025-05-08T17:37:49.892+09:00  WARN 6800 --- [MySpringbootLab] [main] o.h.o.deprecation                        : HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-08T17:37:49.915+09:00  INFO 6800 --- [MySpringbootLab] [main] o.h.o.c.pooling                          : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 10.11.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-08T17:37:50.789+09:00  INFO 6800 --- [MySpringbootLab] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-08T17:37:50.835+09:00  INFO 6800 --- [MySpringbootLab] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-08T17:37:51.460+09:00  WARN 6800 --- [MySpringbootLab] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-08T17:37:51.862+09:00  WARN 6800 --- [MySpringbootLab] [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-05-08T17:37:52.313+09:00  INFO 6800 --- [MySpringbootLab] [main] o.s.b.a.e.w.EndpointLinksResolver        : Exposing 1 endpoint beneath base path '/actuator'
+2025-05-08T17:37:52.380+09:00  INFO 6800 --- [MySpringbootLab] [main] c.r.m.r.BookRepositoryTest               : Started BookRepositoryTest in 5.331 seconds (process running for 6.752)
+2025-05-08T17:37:52.414+09:00  INFO 6800 --- [MySpringbootLab] [main] c.r.m.r.MyPropRunner                     : username: springboot
+2025-05-08T17:37:52.414+09:00  INFO 6800 --- [MySpringbootLab] [main] c.r.m.r.MyPropRunner                     : 현재 실행 환경: 운영환경
+2025-05-08T17:37:52.973+09:00  INFO 6800 --- [MySpringbootLab] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-08T17:37:52.976+09:00  INFO 6800 --- [MySpringbootLab] [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2025-05-08T17:37:52.978+09:00  INFO 6800 --- [MySpringbootLab] [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2025-05-08T17:38:06.521+09:00  INFO 37472 --- [MySpringbootLab] [main] c.r.m.r.BookRepositoryTest               : Starting BookRepositoryTest using Java 17.0.2 with PID 37472 (started by pshcc in C:\mybackend\MySpringbootLab\MySpringbootLab)
+2025-05-08T17:38:06.528+09:00  INFO 37472 --- [MySpringbootLab] [main] c.r.m.r.BookRepositoryTest               : The following 1 profile is active: "prod"
+2025-05-08T17:38:07.473+09:00  INFO 37472 --- [MySpringbootLab] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-08T17:38:07.539+09:00  INFO 37472 --- [MySpringbootLab] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 55 ms. Found 1 JPA repository interface.
+2025-05-08T17:38:08.216+09:00  INFO 37472 --- [MySpringbootLab] [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-08T17:38:08.288+09:00  INFO 37472 --- [MySpringbootLab] [main] o.h.Version                              : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-08T17:38:08.332+09:00  INFO 37472 --- [MySpringbootLab] [main] o.h.c.i.RegionFactoryInitiator           : HHH000026: Second-level cache disabled
+2025-05-08T17:38:08.810+09:00  INFO 37472 --- [MySpringbootLab] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-08T17:38:08.852+09:00  INFO 37472 --- [MySpringbootLab] [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2025-05-08T17:38:08.944+09:00  INFO 37472 --- [MySpringbootLab] [main] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@5909285b
+2025-05-08T17:38:08.946+09:00  INFO 37472 --- [MySpringbootLab] [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2025-05-08T17:38:08.976+09:00  WARN 37472 --- [MySpringbootLab] [main] o.h.o.deprecation                        : HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-08T17:38:08.998+09:00  INFO 37472 --- [MySpringbootLab] [main] o.h.o.c.pooling                          : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 10.11.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-08T17:38:09.891+09:00  INFO 37472 --- [MySpringbootLab] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-08T17:38:09.937+09:00  INFO 37472 --- [MySpringbootLab] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-08T17:38:10.570+09:00  WARN 37472 --- [MySpringbootLab] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-08T17:38:11.003+09:00  WARN 37472 --- [MySpringbootLab] [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-05-08T17:38:11.472+09:00  INFO 37472 --- [MySpringbootLab] [main] o.s.b.a.e.w.EndpointLinksResolver        : Exposing 1 endpoint beneath base path '/actuator'
+2025-05-08T17:38:11.541+09:00  INFO 37472 --- [MySpringbootLab] [main] c.r.m.r.BookRepositoryTest               : Started BookRepositoryTest in 5.434 seconds (process running for 6.841)
+2025-05-08T17:38:11.581+09:00  INFO 37472 --- [MySpringbootLab] [main] c.r.m.r.MyPropRunner                     : username: springboot
+2025-05-08T17:38:11.582+09:00  INFO 37472 --- [MySpringbootLab] [main] c.r.m.r.MyPropRunner                     : 현재 실행 환경: 운영환경
+2025-05-08T17:38:12.250+09:00  INFO 37472 --- [MySpringbootLab] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-08T17:38:12.252+09:00  INFO 37472 --- [MySpringbootLab] [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2025-05-08T17:38:12.255+09:00  INFO 37472 --- [MySpringbootLab] [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
