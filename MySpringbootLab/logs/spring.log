@@ -783,3 +783,102 @@ insert into books (author,isbn,price,publish_date,title) values (?,?,?,?,?) [421
 2025-05-08T17:38:12.250+09:00  INFO 37472 --- [MySpringbootLab] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2025-05-08T17:38:12.252+09:00  INFO 37472 --- [MySpringbootLab] [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
 2025-05-08T17:38:12.255+09:00  INFO 37472 --- [MySpringbootLab] [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2025-05-09T23:42:47.004+09:00  INFO 17368 --- [MySpringbootLab] [main] c.r.m.r.BookRepositoryTest               : Starting BookRepositoryTest using Java 17.0.2 with PID 17368 (started by pshcc in C:\mybackend\MySpringbootLab\MySpringbootLab)
+2025-05-09T23:42:47.010+09:00  INFO 17368 --- [MySpringbootLab] [main] c.r.m.r.BookRepositoryTest               : The following 1 profile is active: "prod"
+2025-05-09T23:42:47.968+09:00  INFO 17368 --- [MySpringbootLab] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-09T23:42:48.040+09:00  INFO 17368 --- [MySpringbootLab] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 59 ms. Found 1 JPA repository interface.
+2025-05-09T23:42:48.715+09:00  INFO 17368 --- [MySpringbootLab] [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-09T23:42:48.785+09:00  INFO 17368 --- [MySpringbootLab] [main] o.h.Version                              : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-09T23:42:48.826+09:00  INFO 17368 --- [MySpringbootLab] [main] o.h.c.i.RegionFactoryInitiator           : HHH000026: Second-level cache disabled
+2025-05-09T23:42:49.291+09:00  INFO 17368 --- [MySpringbootLab] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-09T23:42:49.330+09:00  INFO 17368 --- [MySpringbootLab] [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2025-05-09T23:42:49.414+09:00  INFO 17368 --- [MySpringbootLab] [main] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@37c74e4e
+2025-05-09T23:42:49.416+09:00  INFO 17368 --- [MySpringbootLab] [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2025-05-09T23:42:49.443+09:00  WARN 17368 --- [MySpringbootLab] [main] o.h.o.deprecation                        : HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-09T23:42:49.464+09:00  INFO 17368 --- [MySpringbootLab] [main] o.h.o.c.pooling                          : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 10.11.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-09T23:42:50.318+09:00  INFO 17368 --- [MySpringbootLab] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-09T23:42:50.361+09:00  INFO 17368 --- [MySpringbootLab] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-09T23:42:50.994+09:00  WARN 17368 --- [MySpringbootLab] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-09T23:42:51.391+09:00  WARN 17368 --- [MySpringbootLab] [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-05-09T23:42:51.855+09:00  INFO 17368 --- [MySpringbootLab] [main] o.s.b.a.e.w.EndpointLinksResolver        : Exposing 1 endpoint beneath base path '/actuator'
+2025-05-09T23:42:51.922+09:00  INFO 17368 --- [MySpringbootLab] [main] c.r.m.r.BookRepositoryTest               : Started BookRepositoryTest in 5.284 seconds (process running for 6.654)
+2025-05-09T23:42:51.959+09:00  INFO 17368 --- [MySpringbootLab] [main] c.r.m.r.MyPropRunner                     : MyBootProperties getUsername() = springboot
+2025-05-09T23:42:51.959+09:00  INFO 17368 --- [MySpringbootLab] [main] c.r.m.r.MyPropRunner                     : MyBootProperties getPort() = 40
+2025-05-09T23:42:51.960+09:00  INFO 17368 --- [MySpringbootLab] [main] c.r.m.r.MyPropRunner                     : 설정된 Port 번호 = null
+2025-05-09T23:42:51.960+09:00  INFO 17368 --- [MySpringbootLab] [main] c.r.m.r.MyPropRunner                     : 현재 활성화된 MyEnvironment Bean = com.rookies3.myspringbootlab.config.MyEnvironment@186fc6e
+2025-05-09T23:42:52.585+09:00  INFO 17368 --- [MySpringbootLab] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-09T23:42:52.587+09:00  INFO 17368 --- [MySpringbootLab] [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2025-05-09T23:42:52.590+09:00  INFO 17368 --- [MySpringbootLab] [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2025-05-09T23:43:18.484+09:00  INFO 25612 --- [MySpringbootLab] [main] c.r.m.r.BookRepositoryTest               : Starting BookRepositoryTest using Java 17.0.2 with PID 25612 (started by pshcc in C:\mybackend\MySpringbootLab\MySpringbootLab)
+2025-05-09T23:43:18.490+09:00  INFO 25612 --- [MySpringbootLab] [main] c.r.m.r.BookRepositoryTest               : The following 1 profile is active: "prod"
+2025-05-09T23:43:19.445+09:00  INFO 25612 --- [MySpringbootLab] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-09T23:43:19.508+09:00  INFO 25612 --- [MySpringbootLab] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 52 ms. Found 1 JPA repository interface.
+2025-05-09T23:43:20.167+09:00  INFO 25612 --- [MySpringbootLab] [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-09T23:43:20.239+09:00  INFO 25612 --- [MySpringbootLab] [main] o.h.Version                              : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-09T23:43:20.283+09:00  INFO 25612 --- [MySpringbootLab] [main] o.h.c.i.RegionFactoryInitiator           : HHH000026: Second-level cache disabled
+2025-05-09T23:43:20.762+09:00  INFO 25612 --- [MySpringbootLab] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-09T23:43:20.799+09:00  INFO 25612 --- [MySpringbootLab] [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2025-05-09T23:43:20.884+09:00  INFO 25612 --- [MySpringbootLab] [main] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@3b8d2abe
+2025-05-09T23:43:20.886+09:00  INFO 25612 --- [MySpringbootLab] [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2025-05-09T23:43:20.914+09:00  WARN 25612 --- [MySpringbootLab] [main] o.h.o.deprecation                        : HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-09T23:43:20.936+09:00  INFO 25612 --- [MySpringbootLab] [main] o.h.o.c.pooling                          : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 10.11.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-09T23:43:21.790+09:00  INFO 25612 --- [MySpringbootLab] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-09T23:43:21.835+09:00  INFO 25612 --- [MySpringbootLab] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-09T23:43:22.466+09:00  WARN 25612 --- [MySpringbootLab] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-09T23:43:22.867+09:00  WARN 25612 --- [MySpringbootLab] [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-05-09T23:43:23.333+09:00  INFO 25612 --- [MySpringbootLab] [main] o.s.b.a.e.w.EndpointLinksResolver        : Exposing 1 endpoint beneath base path '/actuator'
+2025-05-09T23:43:23.403+09:00  INFO 25612 --- [MySpringbootLab] [main] c.r.m.r.BookRepositoryTest               : Started BookRepositoryTest in 5.3 seconds (process running for 6.689)
+2025-05-09T23:43:23.440+09:00  INFO 25612 --- [MySpringbootLab] [main] c.r.m.r.MyPropRunner                     : MyBootProperties getUsername() = springboot
+2025-05-09T23:43:23.440+09:00  INFO 25612 --- [MySpringbootLab] [main] c.r.m.r.MyPropRunner                     : MyBootProperties getPort() = 84
+2025-05-09T23:43:23.441+09:00  INFO 25612 --- [MySpringbootLab] [main] c.r.m.r.MyPropRunner                     : 설정된 Port 번호 = null
+2025-05-09T23:43:23.441+09:00  INFO 25612 --- [MySpringbootLab] [main] c.r.m.r.MyPropRunner                     : 현재 활성화된 MyEnvironment Bean = com.rookies3.myspringbootlab.config.MyEnvironment@34f3c920
+2025-05-09T23:43:24.138+09:00  INFO 25612 --- [MySpringbootLab] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-09T23:43:24.141+09:00  INFO 25612 --- [MySpringbootLab] [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2025-05-09T23:43:24.144+09:00  INFO 25612 --- [MySpringbootLab] [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
+2025-05-09T23:43:49.012+09:00  INFO 13380 --- [MySpringbootLab] [main] c.r.m.r.BookRepositoryTest               : Starting BookRepositoryTest using Java 17.0.2 with PID 13380 (started by pshcc in C:\mybackend\MySpringbootLab\MySpringbootLab)
+2025-05-09T23:43:49.018+09:00  INFO 13380 --- [MySpringbootLab] [main] c.r.m.r.BookRepositoryTest               : The following 1 profile is active: "prod"
+2025-05-09T23:43:50.021+09:00  INFO 13380 --- [MySpringbootLab] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2025-05-09T23:43:50.089+09:00  INFO 13380 --- [MySpringbootLab] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57 ms. Found 1 JPA repository interface.
+2025-05-09T23:43:50.742+09:00  INFO 13380 --- [MySpringbootLab] [main] o.h.j.i.u.LogHelper                      : HHH000204: Processing PersistenceUnitInfo [name: default]
+2025-05-09T23:43:50.818+09:00  INFO 13380 --- [MySpringbootLab] [main] o.h.Version                              : HHH000412: Hibernate ORM core version 6.6.13.Final
+2025-05-09T23:43:50.866+09:00  INFO 13380 --- [MySpringbootLab] [main] o.h.c.i.RegionFactoryInitiator           : HHH000026: Second-level cache disabled
+2025-05-09T23:43:51.371+09:00  INFO 13380 --- [MySpringbootLab] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2025-05-09T23:43:51.410+09:00  INFO 13380 --- [MySpringbootLab] [main] c.z.h.HikariDataSource                   : HikariPool-1 - Starting...
+2025-05-09T23:43:51.496+09:00  INFO 13380 --- [MySpringbootLab] [main] c.z.h.p.HikariPool                       : HikariPool-1 - Added connection org.mariadb.jdbc.Connection@11c25846
+2025-05-09T23:43:51.498+09:00  INFO 13380 --- [MySpringbootLab] [main] c.z.h.HikariDataSource                   : HikariPool-1 - Start completed.
+2025-05-09T23:43:51.527+09:00  WARN 13380 --- [MySpringbootLab] [main] o.h.o.deprecation                        : HHH90000025: MariaDBDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2025-05-09T23:43:51.549+09:00  INFO 13380 --- [MySpringbootLab] [main] o.h.o.c.pooling                          : HHH10001005: Database info:
+	Database JDBC URL [Connecting through datasource 'HikariDataSource (HikariPool-1)']
+	Database driver: undefined/unknown
+	Database version: 10.11.5
+	Autocommit mode: undefined/unknown
+	Isolation level: undefined/unknown
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2025-05-09T23:43:52.414+09:00  INFO 13380 --- [MySpringbootLab] [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2025-05-09T23:43:52.460+09:00  INFO 13380 --- [MySpringbootLab] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2025-05-09T23:43:53.115+09:00  WARN 13380 --- [MySpringbootLab] [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2025-05-09T23:43:53.517+09:00  WARN 13380 --- [MySpringbootLab] [main] ion$DefaultTemplateResolverConfiguration : Cannot find template location: classpath:/templates/ (please add some templates, check your Thymeleaf configuration, or set spring.thymeleaf.check-template-location=false)
+2025-05-09T23:43:53.964+09:00  INFO 13380 --- [MySpringbootLab] [main] o.s.b.a.e.w.EndpointLinksResolver        : Exposing 1 endpoint beneath base path '/actuator'
+2025-05-09T23:43:54.037+09:00  INFO 13380 --- [MySpringbootLab] [main] c.r.m.r.BookRepositoryTest               : Started BookRepositoryTest in 5.404 seconds (process running for 6.764)
+2025-05-09T23:43:54.078+09:00  INFO 13380 --- [MySpringbootLab] [main] c.r.m.r.MyPropRunner                     : MyBootProperties getUsername() = springboot
+2025-05-09T23:43:54.078+09:00  INFO 13380 --- [MySpringbootLab] [main] c.r.m.r.MyPropRunner                     : MyBootProperties getPort() = 75
+2025-05-09T23:43:54.079+09:00  INFO 13380 --- [MySpringbootLab] [main] c.r.m.r.MyPropRunner                     : 설정된 Port 번호 = null
+2025-05-09T23:43:54.079+09:00  INFO 13380 --- [MySpringbootLab] [main] c.r.m.r.MyPropRunner                     : 현재 활성화된 MyEnvironment Bean = com.rookies3.myspringbootlab.config.MyEnvironment@76685ab0
+2025-05-09T23:43:54.798+09:00  INFO 13380 --- [MySpringbootLab] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2025-05-09T23:43:54.800+09:00  INFO 13380 --- [MySpringbootLab] [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown initiated...
+2025-05-09T23:43:54.803+09:00  INFO 13380 --- [MySpringbootLab] [SpringApplicationShutdownHook] c.z.h.HikariDataSource                   : HikariPool-1 - Shutdown completed.
