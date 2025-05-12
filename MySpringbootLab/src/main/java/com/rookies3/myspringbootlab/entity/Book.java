@@ -7,6 +7,9 @@ import java.time.LocalDate;
 
 @Entity
 @Table(name = "books")
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Getter @Setter
 public class Book {
 
@@ -30,4 +33,6 @@ public class Book {
     @Column(nullable = false)
     private LocalDate publishDate;
 
+    @OneToOne(fetch=FetchType.LAZY, mappedBy ="book", cascade = CascadeType.ALL)
+    private BookDetail bookDetail;
 }
