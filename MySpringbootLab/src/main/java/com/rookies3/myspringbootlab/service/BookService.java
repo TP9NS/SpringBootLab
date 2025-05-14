@@ -82,7 +82,7 @@ public class BookService {
                 .bookDetail(detail)
                 .build();
 
-        detail.setBook(book); // 연관 관계 설정
+        detail.setBook(book);
 
         Book saved = bookRepository.save(book);
         return BookDTO.Response.fromEntity(saved);
@@ -100,20 +100,18 @@ public class BookService {
             throw new BusinessException(ErrorCode.ISBN_DUPLICATE, request.getIsbn());
         }
 
-        // 기본 정보 수정
         book.setTitle(request.getTitle());
         book.setAuthor(request.getAuthor());
         book.setIsbn(request.getIsbn());
         book.setPrice(request.getPrice());
         book.setPublishDate(request.getPublishDate());
 
-        // 상세 정보 수정
         if (request.getDetailRequest() != null) {
             BookDetail detail = book.getBookDetail();
 
             if (detail == null) {
                 detail = BookDetail.builder().build();
-                detail.setBook(book);       // 연관관계 설정
+                detail.setBook(book);
                 book.setBookDetail(detail);
             }
 
@@ -127,6 +125,103 @@ public class BookService {
 
         return BookDTO.Response.fromEntity(book);
     }
+
+    @Transactional
+    public BookDTO.Response updateBookDetail(Long id, BookDTO.BookDetailPatchRequest detailRequest) {
+        Book book = bookRepository.findById(id)
+                .orElseThrow(() -> new BusinessException(ErrorCode.RESOURCE_NOT_FOUND, "Book", "id", id));
+
+        BookDetail detail = book.getBookDetail();
+        if (detail == null) {
+            detail = BookDetail.builder().build();
+            detail.setBook(book);
+            book.setBookDetail(detail);
+        }
+
+        if (detailRequest.getDescription() != null) {
+            detail.setDescription(detailRequest.getDescription());
+        }
+        if (detailRequest.getLanguage() != null) {
+            detail.setLanguage(detailRequest.getLanguage());
+        }
+        if (detailRequest.getPageCount() != null) {
+            detail.setPageCount(detailRequest.getPageCount());
+        }
+        if (detailRequest.getPublisher() != null) {
+            detail.setPublisher(detailRequest.getPublisher());
+        }
+        if (detailRequest.getCoverImageUrl() != null) {
+            detail.setCoverImageUrl(detailRequest.getCoverImageUrl());
+        }
+        if (detailRequest.getEdition() != null) {
+            detail.setEdition(detailRequest.getEdition());
+        }
+
+        return BookDTO.Response.fromEntity(book);
+    }
+
+    @Transactional
+    public BookDTO.Response updateBookPartial(Long id, BookDTO.PatchRequest request) {
+        Book book = bookRepository.findById(id)
+                .orElseThrow(() -> new BusinessException(ErrorCode.RESOURCE_NOT_FOUND, "Book", "id", id));
+
+        // ISBN 중복 체크
+        if (request.getIsbn() != null &&
+                !book.getIsbn().equals(request.getIsbn()) &&
+                bookRepository.existsByIsbn(request.getIsbn())) {
+            throw new BusinessException(ErrorCode.ISBN_DUPLICATE, request.getIsbn());
+        }
+
+        if (request.getTitle() != null) {
+            book.setTitle(request.getTitle());
+        }
+        if (request.getAuthor() != null) {
+            book.setAuthor(request.getAuthor());
+        }
+        if (request.getIsbn() != null) {
+            book.setIsbn(request.getIsbn());
+        }
+        if (request.getPrice() != null) {
+            book.setPrice(request.getPrice());
+        }
+        if (request.getPublishDate() != null) {
+            book.setPublishDate(request.getPublishDate());
+        }
+
+        if (request.getDetailRequest() != null) {
+            updateBookDetailFields(book, request.getDetailRequest());
+        }
+
+        return BookDTO.Response.fromEntity(book);
+    }
+
+    @Transactional
+    public BookDTO.Response updateBookDetailPartial(Long id, BookDTO.BookDetailPatchRequest request) {
+        Book book = bookRepository.findById(id)
+                .orElseThrow(() -> new BusinessException(ErrorCode.RESOURCE_NOT_FOUND, "Book", "id", id));
+
+        updateBookDetailFields(book, request);
+
+        return BookDTO.Response.fromEntity(book);
+    }
+
+    private void updateBookDetailFields(Book book, BookDTO.BookDetailPatchRequest request) {
+        BookDetail detail = book.getBookDetail();
+        if (detail == null) {
+            detail = BookDetail.builder().build();
+            detail.setBook(book);
+            book.setBookDetail(detail);
+        }
+
+        if (request.getDescription() != null) detail.setDescription(request.getDescription());
+        if (request.getLanguage() != null) detail.setLanguage(request.getLanguage());
+        if (request.getPageCount() != null) detail.setPageCount(request.getPageCount());
+        if (request.getPublisher() != null) detail.setPublisher(request.getPublisher());
+        if (request.getCoverImageUrl() != null) detail.setCoverImageUrl(request.getCoverImageUrl());
+        if (request.getEdition() != null) detail.setEdition(request.getEdition());
+    }
+
+
 
     // 도서 삭제
     @Transactional

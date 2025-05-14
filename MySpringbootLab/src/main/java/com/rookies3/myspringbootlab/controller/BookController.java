@@ -60,6 +60,22 @@ public class BookController {
         return ResponseEntity.ok(bookService.updateBook(id, request));
     }
 
+    // 도서 일부 필드만 수정
+    @PatchMapping("/{id}")
+    public ResponseEntity<BookDTO.Response> updateBookPartial(
+            @PathVariable Long id,
+            @Valid @RequestBody BookDTO.PatchRequest request) {
+        return ResponseEntity.ok(bookService.updateBookPartial(id, request));
+    }
+
+    // BookDetail 정보 수정
+    @PatchMapping("/{id}/detail")
+    public ResponseEntity<BookDTO.Response> updateBookDetailPartial(
+            @PathVariable Long id,
+            @Valid @RequestBody BookDTO.BookDetailPatchRequest request) {
+        return ResponseEntity.ok(bookService.updateBookDetailPartial(id, request));
+    }
+
     // 도서 삭제
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deleteBook(@PathVariable Long id) {
