@@ -35,4 +35,8 @@ public class Book {
 
     @OneToOne(fetch=FetchType.LAZY, mappedBy ="book", cascade = CascadeType.ALL)
     private BookDetail bookDetail;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "publisher_id") // 실제 DB에 들어갈 외래키 이름
+    private Publisher publisher;
 }

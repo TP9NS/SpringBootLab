@@ -8,8 +8,8 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-@Getter @Setter
-//Owner(주인)
+@Getter
+@Setter
 public class BookDetail {
 
     @Id
@@ -17,27 +17,25 @@ public class BookDetail {
     @Column(name = "book_detail_id")
     private Long id;
 
-    @Column(nullable = false)
+    @Column(columnDefinition = "TEXT")
     private String description;
 
-    @Column(nullable = false)
+    @Column(name = "language")
     private String language;
 
-    @Column(nullable = false)
+    @Column(name = "page_count")
     private Integer pageCount;
 
-    @Column(nullable = false)
+    @Column(name = "publisher")
     private String publisher;
 
-    @Column(nullable = false)
+    @Column(name = "cover_image_url")
     private String coverImageUrl;
 
-    @Column(nullable = false)
+    @Column(name = "edition")
     private String edition;
 
-    //1:1
     @OneToOne(fetch = FetchType.LAZY)
-    //@JoinColumn은 FK에 해당하는 어노테이션.
     @JoinColumn(name = "book_id", unique = true)
     private Book book;
 }

@@ -1,192 +1,155 @@
 package com.rookies3.myspringbootlab.repository;
+
 import com.rookies3.myspringbootlab.entity.Book;
 import com.rookies3.myspringbootlab.entity.BookDetail;
-import com.rookies3.myspringbootlab.repository.BookDetailRepository;
-import com.rookies3.myspringbootlab.repository.BookRepository;
+import com.rookies3.myspringbootlab.entity.Publisher;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
-@SpringBootTest
-//@Transactional
-//@DataJpaTest
+
+@DataJpaTest
 public class BookRepositoryTest {
+
+    @Autowired
+    private TestEntityManager entityManager;
 
     @Autowired
     private BookRepository bookRepository;
 
-    @Autowired
-    private BookDetailRepository bookDetailRepository;
+    private Publisher publisher;
+    private Book book;
+    private BookDetail bookDetail;
 
-    @Test
-    public void createBookWithBookDetail() {
-        // Given
-        Book book = Book.builder()
+    @BeforeEach
+    void setUp() {
+        // Create publisher
+        publisher = Publisher.builder()
+                .name("Penguin Random House")
+                .establishedDate(LocalDate.of(2013, 7, 1))
+                .address("1745 Broadway, New York, NY")
+                .build();
+        entityManager.persistAndFlush(publisher);
+
+        // Create book
+        book = Book.builder()
                 .title("Clean Code")
                 .author("Robert C. Martin")
-                .isbn("9780132350884")
-                .price(45)
+                .isbn("978-0132350884")
+                .price(45000)
                 .publishDate(LocalDate.of(2008, 8, 1))
+                .publisher(publisher)
                 .build();
+        entityManager.persistAndFlush(book);
 
-        BookDetail bookDetail = BookDetail.builder()
+        // Create book detail
+        bookDetail = BookDetail.builder()
                 .description("A handbook of agile software craftsmanship")
                 .language("English")
                 .pageCount(464)
                 .publisher("Prentice Hall")
-                .coverImageUrl("https://example.com/cleancode.jpg")
-                .edition("1st")
+                .edition("1st Edition")
                 .book(book)
                 .build();
+        entityManager.persistAndFlush(bookDetail);
 
         book.setBookDetail(bookDetail);
-
-        // When
-        Book savedBook = bookRepository.save(book);
-
-        // Then
-        assertThat(savedBook).isNotNull();
-        assertThat(savedBook.getId()).isNotNull();
-        assertThat(savedBook.getTitle()).isEqualTo("Clean Code");
-        assertThat(savedBook.getIsbn()).isEqualTo("9780132350884");
-        assertThat(savedBook.getBookDetail()).isNotNull();
-        assertThat(savedBook.getBookDetail().getPublisher()).isEqualTo("Prentice Hall");
-        assertThat(savedBook.getBookDetail().getPageCount()).isEqualTo(464);
+        entityManager.persistAndFlush(book);
     }
 
     @Test
-    public void findBookByIsbn() {
-        // Given
-        Book book = Book.builder()
-                .title("Clean Code")
-                .author("Robert C. Martin")
-                .isbn("9780132350884")
-                .price(45)
-                .publishDate(LocalDate.of(2008, 8, 1))
-                .build();
-
-        BookDetail bookDetail = BookDetail.builder()
-                .description("A handbook of agile software craftsmanship")
-                .language("English")
-                .pageCount(464)
-                .publisher("Prentice Hall")
-                .coverImageUrl("https://example.com/cleancode.jpg")
-                .edition("1st")
-                .book(book)
-                .build();
-
-        book.setBookDetail(bookDetail);
-        bookRepository.save(book);
-
+    void findByIsbn_ShouldReturnBook() {
         // When
-        Optional<Book> foundBook = bookRepository.findByIsbn("9780132350884");
+        Optional<Book> found = bookRepository.findByIsbn("978-0132350884");
 
         // Then
-        assertThat(foundBook).isPresent();
-        assertThat(foundBook.get().getTitle()).isEqualTo("Clean Code");
+        assertThat(found).isPresent();
+        assertThat(found.get().getTitle()).isEqualTo("Clean Code");
+        assertThat(found.get().getAuthor()).isEqualTo("Robert C. Martin");
     }
 
     @Test
-    public void findByIdWithBookDetail() {
-        // Given
-        Book book = Book.builder()
-                .title("Clean Code")
-                .author("Robert C. Martin")
-                .isbn("9780132350884")
-                .price(45)
-                .publishDate(LocalDate.of(2008, 8, 1))
-                .build();
-
-        BookDetail bookDetail = BookDetail.builder()
-                .description("A handbook of agile software craftsmanship")
-                .language("English")
-                .pageCount(464)
-                .publisher("Prentice Hall")
-                .coverImageUrl("https://example.com/cleancode.jpg")
-                .edition("1st")
-                .book(book)
-                .build();
-
-        book.setBookDetail(bookDetail);
-        Book savedBook = bookRepository.save(book);
-
+    void findByIsbn_ShouldReturnEmpty_WhenNotFound() {
         // When
-        Optional<Book> foundBook = bookRepository.findByIdWithBookDetail(savedBook.getId());
+        Optional<Book> found = bookRepository.findByIsbn("000-0000000000");
 
         // Then
-        assertThat(foundBook).isPresent();
-        assertThat(foundBook.get().getBookDetail()).isNotNull();
-        assertThat(foundBook.get().getBookDetail().getPublisher()).isEqualTo("Prentice Hall");
+        assertThat(found).isEmpty();
     }
 
     @Test
-    public void findBooksByAuthor() {
-        // Given
-        Book book1 = Book.builder()
-                .title("Clean Code")
-                .author("Robert C. Martin")
-                .isbn("9780132350884")
-                .build();
-
-        Book book2 = Book.builder()
-                .title("Clean Architecture")
-                .author("Robert C. Martin")
-                .isbn("9780134494166")
-                .build();
-
-        Book book3 = Book.builder()
-                .title("Effective Java")
-                .author("Joshua Bloch")
-                .isbn("9780134685991")
-                .build();
-
-        bookRepository.saveAll(List.of(book1, book2, book3));
-
+    void findByIdWithAllDetails_ShouldReturnBookWithAllDetails() {
         // When
-        List<Book> martinBooks = bookRepository.findByAuthorContainingIgnoreCase("martin");
+        Optional<Book> found = bookRepository.findByIdWithAllDetails(book.getId());
 
         // Then
-        assertThat(martinBooks).hasSize(2);
-        assertThat(martinBooks).extracting(Book::getTitle)
-                .containsExactlyInAnyOrder("Clean Code", "Clean Architecture");
+        assertThat(found).isPresent();
+        assertThat(found.get().getBookDetail()).isNotNull();
+        assertThat(found.get().getPublisher()).isNotNull();
+        assertThat(found.get().getPublisher().getName()).isEqualTo("Penguin Random House");
     }
 
     @Test
-    public void findBookDetailByBookId() {
-        // Given
-        Book book = Book.builder()
-                .title("Clean Code")
-                .author("Robert C. Martin")
-                .isbn("9780132350884")
-                .price(45)
-                .publishDate(LocalDate.of(2008, 8, 1))
-                .build();
-
-        BookDetail bookDetail = BookDetail.builder()
-                .description("A handbook of agile software craftsmanship")
-                .language("English")
-                .pageCount(464)
-                .publisher("Prentice Hall")
-                .coverImageUrl("https://example.com/cleancode.jpg")
-                .edition("1st")
-                .book(book)
-                .build();
-
-        book.setBookDetail(bookDetail);
-        Book savedBook = bookRepository.save(book);
-
+    void findByPublisherId_ShouldReturnBooks() {
         // When
-        Optional<BookDetail> foundBookDetail = bookDetailRepository.findByBookId(savedBook.getId());
+        List<Book> found = bookRepository.findByPublisherId(publisher.getId());
 
         // Then
-        assertThat(foundBookDetail).isPresent();
-        assertThat(foundBookDetail.get().getDescription()).contains("agile software craftsmanship");
+        assertThat(found).hasSize(1);
+        assertThat(found.get(0).getTitle()).isEqualTo("Clean Code");
+    }
+
+    @Test
+    void countByPublisherId_ShouldReturnCorrectCount() {
+        // When
+        Long count = bookRepository.countByPublisherId(publisher.getId());
+
+        // Then
+        assertThat(count).isEqualTo(1);
+    }
+
+    @Test
+    void existsByIsbn_ShouldReturnTrue() {
+        // When
+        boolean exists = bookRepository.existsByIsbn("978-0132350884");
+
+        // Then
+        assertThat(exists).isTrue();
+    }
+
+    @Test
+    void existsByIsbn_ShouldReturnFalse() {
+        // When
+        boolean exists = bookRepository.existsByIsbn("000-0000000000");
+
+        // Then
+        assertThat(exists).isFalse();
+    }
+
+    @Test
+    void findByAuthorContainingIgnoreCase_ShouldReturnBooks() {
+        // When
+        List<Book> found = bookRepository.findByAuthorContainingIgnoreCase("martin");
+
+        // Then
+        assertThat(found).hasSize(1);
+        assertThat(found.get(0).getAuthor()).contains("Martin");
+    }
+
+    @Test
+    void findByTitleContainingIgnoreCase_ShouldReturnBooks() {
+        // When
+        List<Book> found = bookRepository.findByTitleContainingIgnoreCase("clean");
+
+        // Then
+        assertThat(found).hasSize(1);
+        assertThat(found.get(0).getTitle()).contains("Clean");
     }
 }

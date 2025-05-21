@@ -2,10 +2,7 @@ package com.rookies3.myspringbootlab.controller.dto;
 
 import com.rookies3.myspringbootlab.entity.Book;
 import jakarta.validation.Valid;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Past;
-import jakarta.validation.constraints.Pattern;
-import jakarta.validation.constraints.PositiveOrZero;
+import jakarta.validation.constraints.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -34,8 +31,11 @@ public class BookDTO {
         @PositiveOrZero(message = "Price must be positive or zero")
         private Integer price;
 
-        @Past(message = "Publish date must be in the past")
+        @PastOrPresent(message = "Publish date cannot be in the future")
         private LocalDate publishDate;
+
+        @NotNull(message = "Publisher ID is required")
+        private Long publisherId;
 
         @Valid
         private BookDetailDTO detailRequest;
@@ -48,7 +48,10 @@ public class BookDTO {
     public static class BookDetailDTO {
         private String description;
         private String language;
+
+        @PositiveOrZero(message = "Page count must be positive or zero")
         private Integer pageCount;
+
         private String publisher;
         private String coverImageUrl;
         private String edition;
@@ -65,9 +68,14 @@ public class BookDTO {
         private String isbn;
         private Integer price;
         private LocalDate publishDate;
+        private PublisherDTO.SimpleResponse publisher;
         private BookDetailResponse detail;
 
         public static Response fromEntity(Book book) {
+            PublisherDTO.SimpleResponse publisherResponse = book.getPublisher() != null
+                    ? PublisherDTO.SimpleResponse.fromEntity(book.getPublisher())
+                    : null;
+
             BookDetailResponse detailResponse = book.getBookDetail() != null
                     ? BookDetailResponse.builder()
                     .id(book.getBookDetail().getId())
@@ -87,7 +95,28 @@ public class BookDTO {
                     .isbn(book.getIsbn())
                     .price(book.getPrice())
                     .publishDate(book.getPublishDate())
+                    .publisher(publisherResponse)
                     .detail(detailResponse)
+                    .build();
+        }
+    }
+
+    @Data
+    @NoArgsConstructor
+    @AllArgsConstructor
+    @Builder
+    public static class SimpleResponse {
+        private Long id;
+        private String title;
+        private String author;
+        private String isbn;
+
+        public static SimpleResponse fromEntity(Book book) {
+            return SimpleResponse.builder()
+                    .id(book.getId())
+                    .title(book.getTitle())
+                    .author(book.getAuthor())
+                    .isbn(book.getIsbn())
                     .build();
         }
     }
@@ -98,31 +127,6 @@ public class BookDTO {
     @Builder
     public static class BookDetailResponse {
         private Long id;
-        private String description;
-        private String language;
-        private Integer pageCount;
-        private String publisher;
-        private String coverImageUrl;
-        private String edition;
-    }
-    @Data
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @Builder
-    public static class PatchRequest {
-        private String title;
-        private String author;
-        private String isbn;
-        private Integer price;
-        private LocalDate publishDate;
-        private BookDetailPatchRequest detailRequest;
-    }
-
-    @Data
-    @NoArgsConstructor
-    @AllArgsConstructor
-    @Builder
-    public static class BookDetailPatchRequest {
         private String description;
         private String language;
         private Integer pageCount;
